@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Page</title>
+    <style>
+        body {
+            background: url('C:/Users/agg775172/Downloads/login-form-main/login-form-main/assets/img/login-bg.png') no-repeat center center fixed;
+            background-size: cover; 
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            color: #333;
+        }
+        .message {
+            text-align: center;
+        }
+        .lessons {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .lessons h2 {
+            margin-bottom: 10px;
+        }
+        .lessons ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .lessons ul li {
+            margin-bottom: 5px;
+        }
+        .add-button {
+            display: inline-block;
+            background-color: #f4faf4;
+            border: none;
+            color: rgb(8, 8, 8);
+            text-align: center;
+            font-size: 16px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+            text-decoration: none; 
+        }
+        .add-button i {
+            margin-right: 5px;
+        }
+        .add-button:hover {
+            background-color: #ba8cd8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="message">
+        <h1>Lessons Learned</h1>
+    </div>
+
+    <div class="lessons">
+        <h2>Lessons learned in the selected categories:</h2>
+        <ul>
+            <li>"Training on iPMS (Risk Management)
+                Tool for Project management
+                Risk Management Template
+                PMO team should track it"</li>
+            <li>"To have RCA training
+                Team Bandwidth issue
+                Tracking & Management"</li>
+            <li>"Template for Release Management
+                Build and deployment methodologies
+                Release notes"</li>
+        </ul>
+    </div>
+
+    <a class="add-button" href="C:\Users\agg775172\Downloads\login-form-main\public\addlesson.html"><i class="fa fa-plus"></i> Add Lesson</a>
+</div>
+
+<script>
+    const industryLessonsList = document.getElementById('industry-lessons');
+    const storedLessons = JSON.parse(localStorage.getItem('lessons')) || [];
+
+    storedLessons.forEach(lesson => {
+        const listItem = document.createElement('li');
+        listItem.textContent = lesson;
+        industryLessonsList.appendChild(listItem);
+    });
+</script>
+
+</body>
+</html>

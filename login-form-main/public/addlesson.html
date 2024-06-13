@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Lesson</title>
+    <style>
+        body {
+            background: url('C:/Users/agg775172/Downloads/login-form-main/login-form-main/assets/img/login-bg.png') no-repeat center center fixed;
+            background-size: cover;  
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .lesson-form {
+            max-width: 400px;
+            width: 100%;
+        }
+        .lesson-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .lesson-form input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .lesson-form button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            font-size: 16px;
+            background-color: #fcfcfc;
+            border: none;
+            color: rgb(158, 113, 175);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .lesson-list {
+            margin-top: 20px;
+        }
+        .lesson-list-item {
+            margin-bottom: 10px;
+        }
+        .edit-delete-btns {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .edit-delete-btns button {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Add Lesson</h1>
+
+<form class="lesson-form">
+    <label for="lesson-input">Lesson:</label>
+    <input type="text" id="lesson-input" placeholder="Enter lesson...">
+    <button type="submit" id="submit-lesson-btn">Submit</button>
+</form>
+
+<div class="lesson-list">
+    <h2>Lessons learned:</h2>
+    <ul id="lessons-ul">
+    </ul>
+</div>
+
+<script>
+    function renderLessons() {
+        const lessonsUl = document.getElementById('lessons-ul');
+        lessonsUl.innerHTML = '';
+
+        const storedLessons = JSON.parse(localStorage.getItem('lessons')) || [];
+
+        storedLessons.forEach((lesson, index) => {
+            const listItem = document.createElement('li');
+            listItem.className = 'lesson-list-item';
+            listItem.innerHTML = `
+                <span>${lesson}</span>
+                <div class="edit-delete-btns">
+                    <button onclick="editLesson(${index})">Edit</button>
+                    <button onclick="deleteLesson(${index})">Delete</button>
+                </div>
+            `;
+            lessonsUl.appendChild(listItem);
+        });
+    }
+
+    document.querySelector('.lesson-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const lessonInput = document.getElementById('lesson-input');
+        const lesson = lessonInput.value.trim();
+        if (lesson !== '') {
+            const storedLessons = JSON.parse(localStorage.getItem('lessons')) || [];
+            storedLessons.push(lesson);
+            localStorage.setItem('lessons', JSON.stringify(storedLessons));
+            renderLessons();
+            lessonInput.value = ''; 
+        }
+    });
+    function editLesson(index) {
+        const storedLessons = JSON.parse(localStorage.getItem('lessons')) || [];
+        const lessonToEdit = storedLessons[index];
+        const newLesson = prompt('Edit lesson:', lessonToEdit);
+        if (newLesson !== null) {
+            storedLessons[index] = newLesson.trim();
+            localStorage.setItem('lessons', JSON.stringify(storedLessons));
+            renderLessons();
+        }
+    }
+    function deleteLesson(index) {
+        const storedLessons = JSON.parse(localStorage.getItem('lessons')) || [];
+        storedLessons.splice(index, 1);
+        localStorage.setItem('lessons', JSON.stringify(storedLessons));
+        renderLessons();
+    }
+    renderLessons();
+</script>
+
+</body>
+</html>
