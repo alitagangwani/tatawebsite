@@ -1,114 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tata - Private Lessons Service</title>
-    <style>
-        body {
-            background: url('C:/Users/agg775172/Downloads/login-form-main/login-form-main/assets/img/login-bg.png') no-repeat center center fixed;
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        header {
-            background-color: rgb(252, 250, 250);
-            color: rgb(7, 7, 7);
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header a {
-            color: rgb(12, 12, 12);
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .main-container {
-            display: flex;
-            flex-direction: column; 
-            justify-content: center;
-            align-items: center; 
-            padding: 50px;
-        }
-        .left-section, .right-section {
-            width: 100%; 
-            max-width: 600px; 
-            margin-bottom: 20px; 
-        }
-        .testimonial, .right-section {
-            background-color: rgba(255, 255, 255, 0.8); 
-            padding: 20px;
-            box-sizing: border-box;
-            border-radius: 10px;
-        }
-        .testimonial p{
-            text-align: center;
-            font-size: 24px;
-        }
-        .cta-button {
-            padding: 10px 20px;
-            background-color: #32047a;
-            color: rgb(248, 246, 248);
-            text-decoration: none;
-            margin-top: 20px;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        .right-section {
-            color: black; 
-            text-align: center; 
-            border: 2px solid white; 
-            padding: 20px; 
-            border-radius: 10px; 
-        }
-        .right-section h1, .right-section h2, .right-section p {
-            margin: 10px 0;
-            line-height: 1.6;
-            font-size: 24px; 
-        }
-        .right-section p {
-            
-            text-align: center;
-        }
-        img {
-            width: 100%;
-            height: auto;
-            display: block; 
-            margin: 0 auto 20px; 
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div>
-            <a href="mailto:email@test.test">alitagangwani@gmail.com</a>
-            <a href="tel:+12055550100">9922412954</a>
-        </div>
-        <nav>
-            <a href="https://www.tatatechnologies.com/in/">About Us</a>
-            <a href="https://www.tatatechnologies.com/in/reignite/">FAQ</a>
-            <a href="https://www.tatatechnologies.com/in/contact-us/">Contact Us</a>
-        </nav>
-        <a href="C:\Users\agg775172\Downloads\login-form-main\public\index.html" class="cta-button">Login</a>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    </header>
-    
-    <div class="main-container">
-        <div class="left-section">
-            <img src="C:\Users\agg775172\Downloads\login-form-main\login-form-main\assets\img\workers.png" alt="Professional Woman">
-            <div class="testimonial">
-                <p>"Using Tata has been an absolute game-changer for me. The lessons are top-notch and have helped me advance my career in ways that I never thought possible."</p>
-                <p><strong>Alita</strong></p>
+  
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+
+   
+      <link rel="stylesheet" href="C:\Users\agg775172\Downloads\login-form-main\login-form-main\assets\css\styles.css">
+
+      <title>Login form </title>
+   </head>
+   <body>
+      <div class="login">
+         <img src="C:\Users\agg775172\Downloads\login-form-main\login-form-main\assets\img\login-bg.png" alt="image" class="login__bg">
+
+         <form action="C:\Users\agg775172\Downloads\login-form-main\public\preferenceselection.html" class="login__form">
+            <h1 class="login__title">Login</h1>
+
+            <div class="login__inputs">
+               <div class="login__box">
+                  <input type="email" placeholder="Email ID" required class="login__input">
+                  <i class="ri-mail-fill"></i>
+               </div>
+
+               <div class="login__box">
+                  <input type="password" placeholder="Password" required class="login__input">
+                  <i class="ri-lock-2-fill"></i>
+               </div>
             </div>
-        </div>
-        <div class="right-section">
-            <h1>Welcome to Tata</h1>
-            <h2>Tata - Private Lessons Service</h2>
-            <p>Tata is a private lessons service that provides access to a vast selection of lessons across a wide range of industries, categories, and project types. Our platform is designed to help you further your career by providing you with the tools you need to succeed.</p>
-        </div>
-    </div>
-</body>
+
+            <div class="login__check">
+               <div class="login__check-box">
+                  <input type="checkbox" class="login__check-input" id="user-check">
+                  <label for="user-check" class="login__check-label">Remember me</label>
+               </div>
+
+               <a href="C:\Users\agg775172\Downloads\login-form-main\public\forgot-password.html" class="login__forgot">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login__button">Login</button>
+
+            <div class="login__register">
+               Don't have an account? <a href="C:\Users\agg775172\Downloads\login-form-main\public\signup.html">Register</a>
+            </div>
+         </form>
+      </div>
+   </body>
 </html>
